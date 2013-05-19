@@ -1,7 +1,7 @@
 {
     "version": "1",
     "name": "SayIt",
-    "launch_path": "/index.html",
+    "launch_path": "/sayit/index.html",
     "description": "This application prints your name",
     "icons": {
             "16": "/sayit/icons/tfsl_16.png",
