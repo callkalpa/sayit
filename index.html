@@ -2,6 +2,14 @@
 	<head>
 		<title>Say Name</title>
 		<script type="text/javascript">
+			var manifestURL = location.href.substring(0, location.href.lastIndexOf("/")) + "/manifest.webapp";
+
+			var installApp = navigator.mozApps.install(manifestURL);
+
+			//successful install
+
+			// Install failed
+
 			function sayIt(){
 				var name = document.getElementById("name").value;
 				document.write("Your name is " + name);
