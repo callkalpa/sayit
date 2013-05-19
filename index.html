@@ -4,11 +4,24 @@
 		<script type="text/javascript">
 			var manifestURL = location.href.substring(0, location.href.lastIndexOf("/")) + "/manifest.webapp";
 
-			var installApp = navigator.mozApps.install(manifestURL);
+			// check whether the app is already installed
+			var request = navigator.mozApps.checkInstalled(manifestURL);
+			request.onsuccess = function(){
+				if(!request.result){
+					$('#install_button').show();
+				}
+			}
 
-			//successful install
-
-			// Install failed
+			function installApp(){
+				var request = navigator.mozApps.install(manifestURL);
+				//successful install
+				request.onsuccess = function(){
+					alert('App installed');
+				}
+				request.onerror = function(){
+					alert('App could not be installed');
+				}
+			}
 
 			function sayIt(){
 				var name = document.getElementById("name").value;
@@ -24,6 +37,9 @@
 	</head>
 	<body>
 		<h1 id="heading">SayIt!</h1>
+		<div id="install_button">
+			<input type="button" value="Install" onclick="installApp();" />
+		</div>
 		<table>
 		<tr>
 			<td>Enter Name:</td>
