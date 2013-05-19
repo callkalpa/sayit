@@ -1,10 +1,13 @@
 <html>
 	<head>
-		<script type="text/javascript" src="javascript/jquery-1.9.1.js"></script>
 		<title>Say Name</title>
+		<script type="text/javascript" src="javascripts/jquery-1.9.1.js"></script>
 		<script type="text/javascript">
 
-			$('#install_button').hide();
+			$(function(){
+				$('#install_button').hide();
+			});
+			
 
 			var manifestURL = location.href.substring(0, location.href.lastIndexOf("/")) + "/manifest.webapp";
 
